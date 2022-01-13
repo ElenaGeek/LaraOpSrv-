@@ -23,12 +23,13 @@ Route::get('/form', function () {
     return view('form');
 });
 
+Route::get('/catalog', function () {
+    return view('catalog');
+});
+
 Route::get('/product', function () {
     return view('product');
 });
 
-Route::get('/catalog', function () {
-    return view('catalog');
-});
 
 
