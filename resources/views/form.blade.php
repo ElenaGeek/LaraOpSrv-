@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lesson 2</title>
+    <title>Lesson 3</title>
     <link rel="stylesheet" href="css/style.css">
 
 </head>
