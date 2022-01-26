@@ -1,5 +1,7 @@
 <?php
 
+// use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +12,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix'=>'/admin/news','as'=>'admin::news::'], function(){
+    Route::get('', ['as' => 'index', 'uses' => 'Admin\NewsController@index']);
+Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\NewsController@create']);
+//    Route::post('create', ['as' => 'create', 'uses' => 'Admin\NewsController@create']);
+    Route::get('new', ['as' => 'new', 'uses' => 'Admin\NewsController@new']);
+});
+
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 /*Route::get('/', ['uses' => 'HomeController@index']);*/
 
@@ -22,11 +32,10 @@ Route::get('/news/info/{id}', ['uses' => 'InfoController@index']);
 
 Route::get('/add', ['uses' => 'AddController@index']);
 
+/*
 Route::get('/form', function () {
     return view('form');
 });
-
-/*
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,18 +43,6 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     return '<b> Hello, world!<b>';
-});
-
-Route::get('/catalog', function () {
-    return view('catalog');
-});
-
-Route::get('/product', function () {
-    return view('product');
-});
-
-Route::get('/footer', function () {
-    return view('footer');
 });
 */
 

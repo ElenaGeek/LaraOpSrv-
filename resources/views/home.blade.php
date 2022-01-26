@@ -3,27 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lesson 3 @yield('title')</title>
+
+	<script src="{{asset('js/app.js')}}" defer></script>
+	<link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+<!--	<title>Lesson 4 @yield('title')</title> -->
+	<title>@section('title') @show</title>
 </head>
 <body>
-	<div class="header">
+<div class="row justify-content-center">
+	<div class="class-md-6">
+		<div class="header">
 		@include('header')
+		</div>
+
+		<div class="content">
+	        @yield('content')
+		</div>
+
+		<div class="menu">
+			@yield('menu')
+		</div>
+
+		<div class="footer">
+			@include('footer')
+		</div>
 	</div>
-
-	<div class="content">
-		<h1>Сайт новостей</h1>
-		<h2>Приветствуем на сайте последних новостей. Для просмотра новостей выберите категорию и пройдите по ссылке.</h2>
-        <p>Сайт предствляет новости в нескольких категориях - <b>Политика, Экономика, Культура, Погода.</b> <br> Вы можете посмотреть список новостей в каждой категории и подробную информацию о каждой новости.<br> Также Вы можете зарегистрироваться и добавить свою новость.</p>
-	</div>
-
-	<div class="menu">
-
-		@yield('menu')
-	</div>
-
-	<div class="footer">
-		@include('footer')
-	</div>
-
+</div>
 </body>
 </html>
