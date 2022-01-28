@@ -20,8 +20,10 @@ private $news =[
     {
 
     $news = $news->getNews();
+//  dd($news);
     $return =['news'=>$news, 'ic' =>$ic];
-//    $return =['news'=>$this->news, 'ic' =>$ic];
+//  dd($return);
+//  $return =['news'=>$this->news, 'ic' =>$ic];
     return view('news', $return);
 
     }
