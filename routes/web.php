@@ -13,6 +13,9 @@
 |
 */
 
+//Route::get('/db', [\App\Http\Controllers\DbController::class, 'index']);
+Route::get('/db', ['uses' => 'DbController@index']);
+
 Route::group(['prefix'=>'/admin/news','as'=>'admin::news::'], function(){
     Route::get('', ['as' => 'index', 'uses' => 'Admin\NewsController@index']);
 Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\NewsController@create']);
