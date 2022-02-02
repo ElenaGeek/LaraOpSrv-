@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\News;
+use App\Models\NewsOld;
 
 class InfoController extends Controller
 {
@@ -16,7 +19,10 @@ private $news =[
     public function index($in)
     {
 
+        //$news = News::all();
+
         $return =['news'=>$this->news, 'in' =>$in];
+        // $return =['news'=>$news, 'in' =>$in];
         /*dd($return);*/
         return view('info', $return);
 

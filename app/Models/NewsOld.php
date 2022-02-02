@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class News extends Model
+class NewsOld extends Model
 {
 
 protected $fillable = [
@@ -16,7 +16,7 @@ protected $fillable = [
 	'updated_at'
 ];
 
-public function News()
+public function getNews()
 	{
 		// $news = \DB::table('news')->get();
 
@@ -56,8 +56,6 @@ public function category(){
 
 	return $this->belongTo(Category::class);
 }
-
-
 
 
 

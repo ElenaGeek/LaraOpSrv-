@@ -21,6 +21,13 @@ Route::group(['prefix'=>'/admin/news','as'=>'admin::news::'], function(){
 Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\NewsController@create']);
 //    Route::post('create', ['as' => 'create', 'uses' => 'Admin\NewsController@create']);
     Route::get('new', ['as' => 'new', 'uses' => 'Admin\NewsController@new']);
+
+    Route::get('index', ['as' => 'save', 'uses' => 'Admin\NewsController@create']);
+    Route::get('update/{news}', ['as' => 'update', 'uses' => 'Admin\NewsController@update']);
+    Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'Admin\NewsController@delete']);
+Route::match(['get','post'],'save', ['as' => 'save', 'uses' => 'Admin\NewsController@save']);
+
+
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
