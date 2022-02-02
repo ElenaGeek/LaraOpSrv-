@@ -28,16 +28,18 @@ class CreateNewsTable extends Migration
             ->index();
             $table->string('photo', '50')
             ->nullable(true);
-            $table->bigInteger('category_id')
-            ->nullable(false);
-            $table->bigInteger('source_id')
-            ->nullable(false);
+            $table->unsignedbigInteger('category_id')
+            ->default(1);
+            $table->unsignedbigInteger('source_id')
+            ->default(1);
             $table->boolean('status')
             ->default(0);
             $table->timestamps();
+            //$table->foreign('category_id')
+            //->references('id')
+            //->on('categories');
         });
 
-/*
         \DB::table('news')
         ->insert([
             'title' => 'Новость 1',
@@ -47,7 +49,17 @@ class CreateNewsTable extends Migration
             'source_id' => '1',
             'publish_date' => date('Y-m-d')
         ]);
-*/
+
+        \DB::table('news')
+        ->insert([
+            'title' => 'Новость 2',
+            'info' => 'Детали Новости 2',
+            'description' => '',
+            'category_id' => '2',
+            'source_id' => '2',
+            'publish_date' => date('Y-m-d')
+        ]);
+
     }
 
     /**

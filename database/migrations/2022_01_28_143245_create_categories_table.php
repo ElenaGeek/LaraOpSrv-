@@ -23,6 +23,30 @@ class CreateCategoriesTable extends Migration
             ->nullable(true);
             $table->timestamps();
         });
+
+        \DB::table('categories')
+        ->insert([
+            'name' => 'Политика',
+            'image' => '1',
+        ]);
+
+        \DB::table('categories')
+        ->insert([
+            'name' => 'Экономика',
+            'image' => '2',
+        ]);
+
+        \DB::table('categories')
+        ->insert([
+            'name' => 'Культура',
+            'image' => '3',
+        ]);
+
+        \DB::table('categories')
+        ->insert([
+            'name' => 'Погода',
+            'image' => '4',
+        ]);
     }
 
     /**

@@ -12,7 +12,7 @@
 
 	<div class="content">
 		<h1>Новости в категории</h1>
-		<img src='../img/{{$ic}}.png'></img><br>
+		<img src='../img/{{$id}}.png'></img><br>
 		<h2>Нажмите на ссылку для просмотра новости.</h2>
 
 
