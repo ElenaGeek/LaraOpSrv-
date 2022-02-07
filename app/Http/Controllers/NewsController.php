@@ -8,13 +8,12 @@ use App\Models\NewsOld;
 
 class NewsController extends Controller
 {
-
     public function index(News $news, $id)
     {
 
-    $news = $news->News();
+    $news = $news->getNews();
     $return =['news'=>$news, 'id' =>$id];
-//  dd($return);
+    // dd($return);
     return view('news', $return);
 
     $news->save();

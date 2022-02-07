@@ -56,7 +56,4 @@ public function category(){
 
 	return $this->belongTo(Category::class);
 }
-
-
-
 }

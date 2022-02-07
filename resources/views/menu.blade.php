@@ -1,7 +1,7 @@
 @extends('home')
 
 @section('title')
-	Lesson 6 Home
+	Lesson 7 Home
 @endsection
 
 @section('content')
@@ -18,7 +18,8 @@
 <!--	<a href='/form'><b>Авторизация</b></a><br>
 	<a href='/add'><b>Добавить новость</b></a><br>
         <a href='/admin/news/create'><b>Создать новость</i></b></a><br>-->
-        <a href='/admin/news'><b>Админка</i></b></a><br>
+        <a href='/admin/news'><b>Админка новостей</b></a><br>
+        <a href='/admin/categories'><b>Админка категорий</i></b></a><br>
 @endsection
 
 

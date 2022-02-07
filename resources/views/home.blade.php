@@ -17,12 +17,12 @@
 		@include('header')
 		</div>
 
-		<div class="content">
-	        @yield('content')
-		</div>
-
 		<div class="menu">
 			@yield('menu')
+		</div>
+
+		<div class="content">
+	        @yield('content')
 		</div>
 
 		<div class="footer">
