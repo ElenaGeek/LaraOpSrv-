@@ -16,6 +16,7 @@
 //Route::get('/db', [\App\Http\Controllers\DbController::class, 'index']);
 Route::get('/db', ['uses' => 'DbController@index']);
 
+
 Route::group(['prefix'=>'/admin/news','as'=>'admin::news::'], function(){
     Route::get('', ['as' => 'index', 'uses' => 'Admin\NewsController@index']);
 Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\NewsController@create']);
@@ -23,12 +24,27 @@ Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\NewsCo
     Route::get('new', ['as' => 'new', 'uses' => 'Admin\NewsController@new']);
 
     Route::get('index', ['as' => 'save', 'uses' => 'Admin\NewsController@create']);
-    Route::get('update/{news}', ['as' => 'update', 'uses' => 'Admin\NewsController@update']);
+Route::match(['get','post'],'update/{id}', ['as' => 'update', 'uses' => 'Admin\NewsController@update']);
     Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'Admin\NewsController@delete']);
 Route::match(['get','post'],'save', ['as' => 'save', 'uses' => 'Admin\NewsController@save']);
 
-
 });
+
+
+
+Route::group(['prefix'=>'/admin/categories','as'=>'admin::categories::'], function(){
+    Route::get('', ['as' => 'index', 'uses' => 'Admin\CategoryController@index']);
+    Route::get('index', ['as' => 'save', 'uses' => 'Admin\CategoryController@create']);
+Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\CategoryController@create']);
+
+Route::match(['get','post'],'update/{id}', ['as' => 'update', 'uses' => 'Admin\CategoryController@update']);
+
+    Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'Admin\CategoryController@delete']);
+Route::match(['get','post'],'save', ['as' => 'save', 'uses' => 'Admin\CategoryController@save']);
+});
+
+
+
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 /*Route::get('/', ['uses' => 'HomeController@index']);*/

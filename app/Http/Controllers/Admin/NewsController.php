@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
@@ -27,19 +28,29 @@ class NewsController extends Controller
 
     public function create(Category $category)
     {
+
+        \App::setlocale('en');
+        __('labels.title');
+
+
         //dd($category);
+
         return view('admin.news.create',
         [ 'model' => new News(),
           'categories' => $category->getList()
         ]);
     }
 
-    public function update(Category $category, News $news)
+    public function update(Category $category, News $news, $id)
     {
-
-        dump($news);
+        /*
+        dump($id);
+        $return = [ 'model' => $news-> News($id),
+          'categories' => $category->getList()];
+        dump($return);
+        */
         return view('admin.news.create',
-        [ 'model' => News(),
+        [ 'model' => $news -> News($id),
           'categories' => $category->getList()
         ]);
 
@@ -63,13 +74,25 @@ class NewsController extends Controller
      */
     public function save(Request $request)
     {
-        $id = $request ->post ('id');
+        /*
+        $rules =[
+        'title' => 'required|min:5|max:50|unique:news',
+        'description' =>'max:1000| required',
+        'category_id' => 'required|integer|exists:categories,id',
+        'active' => 'boolean',
+        'publish_date' => 'date'
+        ];
+        */
+
+        if ($request->id === NULL) $this->validate($request, News::rules());
+
+        $id = $request->post('id');
         // @var News $model
-        //$model = News::findOrNew($id);
+        // $model = News::findOrNew($id);
         $model = $id ? News::find($id) : new News();
         $model ->fill($request->all());
         $model ->save();
-        dd($model);
+        //dd($model);
         return redirect() -> route('admin::news::update', ['news' => $model->id])
         -> with('success', "Данные сохранены");
     }

@@ -31,11 +31,15 @@
 
 <div class="class-md-6">
         <h1>Создать новость</h1>
+
 @php
-//dd($model->id);
+//dd($model);
 @endphp
 
 {!!Form::open(['route' => 'admin::news::save']) !!}
+
+<!--<form action="{{route('admin::news::save')}}" method="post" -->
+
 @csrf
 
 @if($model->id)
@@ -43,33 +47,38 @@
 @endif
 
 
+
 <div class="form-group">
-    <label class= "form-label">{{__('labels.title')}}</label>
+    <label class= "form-label">Заголовок:</label>
 @error('title')
        <div class="alert alert-danger">{{$message}}</div>
 @enderror
-
-{!!Form::text("title", $model->title ?? old('title'), ['class' => "form-control"]) !!}
+    	<div class="form-group">
+        	<input type="text" class="form-control" name="{{$model->title}}" placeholder="Заголовок">
+        </div>
 
 </div>
 
 @php
-//dd($model->title);
+dd($model->title);
 @endphp
-
-<div class="form-group">
-    <label class= "form-label">Краткая информация:</label>
-{!!Form::text("info", $model->info ?? old('info'), ['class' => "form-control"]) !!}
-</div>
-
 <div class="form-group">
     <label class= "form-label">Содержание:</label>
-{!!Form::textarea("description", $model->description ?? old('description'), ['class' => "form-control"]) !!}
+    	<div class="form-group">
+        	<input type="textarea" class="form-control" name="{{$model->description}}" placeholder="Содержание">
+        </div>
 </div>
 
 <div class="form-group">
     <label class= "form-label">Категория:</label>
-{!!Form::select('category_id', $categories, $model->category_id, ['class' =>"form-control"]) !!}
+
+    {!!Form::select('category_id', $categories, $model->category_id, ['class' =>"form-control"]) !!}
+
+    <!--
+        <div class="form-group">
+            <input type="select" class="form-control" name="{{$model->category_id}}">
+        </div>
+    -->
 </div>
 
 <div class="form-group">
@@ -82,19 +91,21 @@
 
 <div class="form-group">
     <label class= "form-label">Дата публикации</label>
-{!!Form::date("publish_date", $model->publish_date ?? old('dpublish_date'), ['dataformats' => "Y-m-d", 'class' => "form-control"]) !!}
+    	<div class="form-group">
+        <input type="date" class="form-control" name="{{$model->publish_date}}" dataformats="Y-m-d">
+ 		 </div>
 </div>
-
-<div class="form-group">
-    <label class= "form-label"></label>
+         <label class= "form-label"></label>
         <div class="form-group">
-        <input type="submit" class="btn btn-success" value="Сохранить" ><br><br>
-    </div>
-</div>
-
+        <input type="submit" class="btn-success" name="" placeholder="..."><br><br>
+         </div>
+<!--</form>-->
 {!! Form::close() !!}
 
 	</div>
 </div>
 
+@php
+//dd($model->title);
+@endphp
 @endsection
