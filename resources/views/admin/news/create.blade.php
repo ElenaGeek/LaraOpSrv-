@@ -3,7 +3,7 @@
 /** @var \App\Models\Category[] $categories */
 @endphp
 
-@extends('home')
+@extends('layouts.main')
 
 @section('title')
 	@parent

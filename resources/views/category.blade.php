@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@yield('title', 'Lesson 6')</title>
-</head>
-<body>
-	<div class="header">
-		@include('header')
-	</div>
+@extends('layouts.main')
 
-	<div class="content">
-		<h1>Категории новостей</h1>
-		<h2>Приветствуем на странице категорий новостей. Для просмотра новостей выберите категорию и пройдите по ссылке.</h2>
+@section('title')
+@parent
+	Categories
+@endsection
+
+@section('content')
+<h1>Категории новостей</h1>
+<h2>Приветствуем на странице категорий новостей.</h2>
+<p>Для просмотра новостей выберите категорию и пройдите по ссылке.</p>
 
 	@php
 	/*dd($categories);*/
@@ -30,12 +26,4 @@
     @empty
     	Новостей нет !!!
     @endforelse
-
-	</div>
-
-	<div class="footer">
-		@include('footer')
-	</div>
-
-</body>
-</html>
+@endsection

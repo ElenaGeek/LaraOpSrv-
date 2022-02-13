@@ -23,6 +23,36 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        \App::setLocale(session('locale'));
+
+        $menu = [
+            [
+                'title' => 'Home page',
+                'alias' => 'home'
+            ],
+            [
+                'title' => 'Новости',
+                'alias' => 'category'
+            ],
+            [
+                'title' => 'Админка новостей',
+                'alias' => 'admin::news::index'
+            ],
+            [
+                'title' => 'Админка категорий',
+                'alias' => 'admin::categories::index'
+            ],
+            [
+                'title' => 'Профиль',
+                'alias' => 'admin::profile::update'
+            ],
+            [
+                'title' => 'Админка пользователей',
+                'alias' => 'admin::profile::index'
+            ],
+        ];
+
+        \View::share('menu', $menu);
     }
 }
