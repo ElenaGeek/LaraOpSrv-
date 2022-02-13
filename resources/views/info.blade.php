@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@yield('title', 'Lesson 6')</title>
-</head>
-<body>
-	<div class="header">
-		@include('header')
-	</div>
+@extends('layouts.main')
 
-	<div class="content">
-		<h1>Новость {{$in}} в деталях</h1>
+@section('title')
+@parent
+	Card
+@endsection
 
-		<h2>Как это было ...</h2>
+@section('content')
+<h1>Новость {{$in}} в деталях</h1>
+
+<h2>Как это было ...</h2>
 
 	@php
 	/*dd($news);*/
@@ -28,11 +23,4 @@
         	@endif
     @endforeach
 
-	</div>
-
-	<div class="footer">
-		@include('footer')
-	</div>
-
-</body>
-</html>
+@endsection

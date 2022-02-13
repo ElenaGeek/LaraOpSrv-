@@ -1,34 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.main')
 
-	<script src="{{asset('js/app.js')}}" defer></script>
-	<link rel="stylesheet" href="{{asset('css/app.css')}}">
+@section('title')
+@parent
+	Home
+@endsection
 
-<!--	<title>Lesson 4 @yield('title')</title> -->
-	<title>@section('title') @show</title>
-</head>
-<body>
-<div class="row justify-content-center">
-	<div class="class-md-6">
-		<div class="header">
-		@include('header')
-		</div>
+@section('content')
+	<h1>Сайт новостей</h1>
 
-		<div class="menu">
-			@yield('menu')
-		</div>
+		<h2>Приветствуем на сайте последних новостей.</h2><br>
+	        <p>Сайт предствляет новости в нескольких категориях - <b>Политика, Экономика, Культура, Погода.</b> </p><br>
+	        <p> Вы можете посмотреть список новостей в каждой категории и подробную информацию о каждой новости.</p><br>
+	        <p> Также Вы можете зарегистрироваться и добавить свою новость.</p>
+@endsection
 
-		<div class="content">
-	        @yield('content')
-		</div>
-
-		<div class="footer">
-			@include('footer')
-		</div>
-	</div>
-</div>
-</body>
-</html>

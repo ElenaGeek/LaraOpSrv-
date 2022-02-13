@@ -1,7 +1,8 @@
-@extends('home')
+@extends('layouts.main')
 
 @section('title')
-	Lesson 7 Home
+@parent
+	Old menu
 @endsection
 
 @section('content')

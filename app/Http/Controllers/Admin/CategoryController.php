@@ -7,6 +7,7 @@ use Illuminate\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+// use App\Http\Requests;
 
 class CategoryController extends Controller
 {

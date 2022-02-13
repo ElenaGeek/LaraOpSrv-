@@ -2,5 +2,6 @@
 
 return [
 	'title' => 'Title',
-	'name' => 'Name of the category'
+	'name' => 'Name of the category',
+	'username' => 'Name'
 ];
