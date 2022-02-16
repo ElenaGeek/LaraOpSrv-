@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Middleware;
+use App\Http\Requests\AdminProfileEditRequest;
 
 class ProfileController extends Controller
 {
@@ -27,18 +29,16 @@ class ProfileController extends Controller
         \App::setlocale('en');
         __('labels.username');
 
+        return view('admin.profile.update', [ 'user' => new User()]);
+    }
 
-        //dd($user);
-//    return view('admin.profile.update');
-/*
-        return view('admin.profile.update',
-        [ 'model' => new Category(),
-          'categories' => $category->getList()
-        ]);
-*/
+    public function delete ($id)
+    {
 
-        return view('admin.profile.update',
-        [ 'user' => new User()]);
+        //dd($id);
+        User::destroy([$id]);
+        return redirect() -> route('admin::profile::index');
+
     }
 
     public function show()
@@ -52,25 +52,28 @@ class ProfileController extends Controller
         $user =\Auth::user();
 
 // if ($request->id === NULL) $this->validate($request, User::rules());
-// if (!$request->id) $this->validate($request, User::rules());
 
         if($request->isMethod('post'))
         {
             $password =$request->post('password');
 
-            if(\Hash::check($request->post('current_password'), $user->password))
+            if(!empty($password))
             {
-                if($this->validate($request, User::rules()))
-                {
+              $user->password = \Hash::make($password);
+            }
 
             $user->name = $request -> post('name');
             $user->email = $request -> post('email');
-            $user->password = \Hash::make($request -> post('password'));
-                }
+            $user->is_admin = $request -> has('is_admin');
             $user->save();
             // $request->session()->flash('MSG', 'Данные сохранены');
-             }
+
         }
-        return view('admin.profile.update', ['user' => $user]);
+        return redirect() -> route('admin::profile::show');
+//        -> with('success', "Данные сохранены");
     }
+
+
+
+
 }

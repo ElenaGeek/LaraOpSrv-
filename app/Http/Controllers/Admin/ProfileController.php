@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +24,20 @@ class ProfileController extends Controller
         return view('admin.profile.index', ['users' =>$users]);
     }
 
-    public function create(User $user)
+    public function create()
     {
 
         \App::setlocale('en');
         __('labels.username');
 
+        $user = new User();
+        $user->name = 'Ivan';
+        $user->password = Hash::make('password');
+        $user->email = 'mail@mail';
+        $user->save();
+
         return view('admin.profile.update', [ 'user' => new User()]);
+        $user->save();
     }
 
     public function delete ($id)
@@ -56,6 +64,7 @@ class ProfileController extends Controller
         if($request->isMethod('post'))
         {
             $password =$request->post('password');
+            $id = $request->post('id');
 
             if(!empty($password))
             {
@@ -69,8 +78,9 @@ class ProfileController extends Controller
             // $request->session()->flash('MSG', 'Данные сохранены');
 
         }
-        return redirect() -> route('admin::profile::show');
+        return redirect() -> route('admin::profile::show', ['user' => $user->id]);
 //        -> with('success', "Данные сохранены");
+
     }
 
 

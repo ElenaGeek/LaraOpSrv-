@@ -26,7 +26,7 @@
         <a class="btn btn-primary" href="{{route('admin::profile::update', ['user' => $item->id] )}}">
             Изменить
         </a>
-        <a class="btn btn-danger" href="{{route('admin::profile::update', ['id' => $item->id] )}}">
+        <a class="btn btn-danger" href="{{route('admin::profile::delete', ['id' => $item->id] )}}">
             Удалить
         </a>
         </p>
