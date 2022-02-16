@@ -53,6 +53,21 @@ Route::get('/news/{id}', ['uses' => 'NewsController@index']);
 Route::get('/news/info/{id}', ['uses' => 'InfoController@index']);
 Route::get('/add', ['uses' => 'AddController@index']);
 
+//Parser
+Route::get('/parser', ['as' => 'parser', 'uses' => 'Admin\ParserController@index']);
+
+//Social
+
+Route::group([
+    'prefix' => 'social',
+    'as' => 'social::',
+], function () {
+    Route::get('/login', [SocialController::class, 'loginVk'])
+        ->name('login-vk');
+    Route::get('/response', [SocialController::class, 'responseVk'])
+        ->name('response-vk');
+});
+
 /*
 Route::get('/form', function () {
     return view('form');
@@ -74,7 +89,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout','Auth\LoginController@logout');
 
 
-Route::group(['prefix'=>'/admin/profile','as'=>'admin::profile::','middleware'=> ['auth']],
+Route::group([
+    'prefix'=>'/admin/profile',
+    'as'=>'admin::profile::',
+    'middleware'=> ['auth']],
     function(){
 Route::match(['get','post'],'create', ['as' => 'create', 'uses' => 'Admin\ProfileController@create']);
 Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'Admin\ProfileController@delete']);

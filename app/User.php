@@ -75,5 +75,13 @@ class User extends Authenticatable
         'email' =>'required|email',
         'password' => 'nullable|string|min:3',
     ];
-}
+    }
+
+// Проверка пользователя на статус администратора
+/*
+    public function isAdmin()
+    {
+        return $this->is_admin === 1;
+    }
+*/
 }

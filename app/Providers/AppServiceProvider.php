@@ -51,6 +51,10 @@ class AppServiceProvider extends ServiceProvider
                 'title' => 'Админка пользователей',
                 'alias' => 'admin::profile::index'
             ],
+            [
+                'title' => 'Parser',
+                'alias' => 'parser'
+            ],
         ];
 
         \View::share('menu', $menu);
