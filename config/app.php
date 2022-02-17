@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Orchestra\Parser\XmlServiceProvider::class,
-        \SocialiteProviders\Manager\ServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*
@@ -228,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'XmlParser' => Orchestra\Parser\Xml\Facade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

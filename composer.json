@@ -14,6 +14,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.8",
         "orchestra/parser": "^3.8",
+        "predis/predis": "^1.1",
         "socialiteproviders/vkontakte": "^4.1"
     },
     "require-dev": {

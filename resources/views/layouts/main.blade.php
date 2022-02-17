@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 <!--	<title>Lesson 8 @yield('title')</title> -->
-	<title>@section('title') Lesson 8 @show</title>
+	<title>@section('title') Lesson 10 @show</title>
 </head>
 <body>
 

@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.38 on 2022-02-15 17:34:37.
+ * Generated for Laravel 5.8.38 on 2022-02-16 07:10:39.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14599,6 +14599,87 @@ namespace Illuminate\Support {
  
 }
 
+namespace Orchestra\Parser\Xml { 
+
+    /**
+     * 
+     *
+     */ 
+    class Facade {
+        
+        /**
+         * Provides SimpleXMLElement to document.
+         *
+         * @param \SimpleXMLElement $xml
+         * @return \Laravie\Parser\Document 
+         * @static 
+         */ 
+        public static function via($xml)
+        {
+                        /** @var \Orchestra\Parser\Xml\Reader $instance */
+                        return $instance->via($xml);
+        }
+        
+        /**
+         * Extract content from string.
+         *
+         * @param string $content
+         * @return \Laravie\Parser\Document 
+         * @static 
+         */ 
+        public static function extract($content)
+        {
+            //Method inherited from \Laravie\Parser\Xml\Reader            
+                        /** @var \Orchestra\Parser\Xml\Reader $instance */
+                        return $instance->extract($content);
+        }
+        
+        /**
+         * Load content from file.
+         *
+         * @param string $filename
+         * @return \Laravie\Parser\Document 
+         * @static 
+         */ 
+        public static function load($filename)
+        {
+            //Method inherited from \Laravie\Parser\Xml\Reader            
+                        /** @var \Orchestra\Parser\Xml\Reader $instance */
+                        return $instance->load($filename);
+        }
+        
+        /**
+         * Load content from local file.
+         *
+         * @param string $filename
+         * @return \Laravie\Parser\Document 
+         * @static 
+         */ 
+        public static function local($filename)
+        {
+            //Method inherited from \Laravie\Parser\Xml\Reader            
+                        /** @var \Orchestra\Parser\Xml\Reader $instance */
+                        return $instance->local($filename);
+        }
+        
+        /**
+         * Load content from remote file.
+         *
+         * @param string $filename
+         * @return \Laravie\Parser\Document 
+         * @static 
+         */ 
+        public static function remote($filename)
+        {
+            //Method inherited from \Laravie\Parser\Xml\Reader            
+                        /** @var \Orchestra\Parser\Xml\Reader $instance */
+                        return $instance->remote($filename);
+        }
+         
+    }
+ 
+}
+
 namespace Laravel\Socialite\Facades { 
 
     /**
@@ -18689,6 +18770,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class XmlParser extends \Orchestra\Parser\Xml\Facade {}
 
     class Socialite extends \Laravel\Socialite\Facades\Socialite {}
 
